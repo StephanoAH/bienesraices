@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "properties",
+  "info": {
+    "name": "Properties"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "properties_names": {
+      "type": "string",
+      "required": true
+    },
+    "room_number": {
+      "type": "integer",
+      "required": true
+    },
+    "parking_number": {
+      "type": "integer",
+      "required": true
+    },
+    "bathrooms": {
+      "type": "integer",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "categories": {
+      "collection": "categories",
+      "via": "properties",
+      "dominant": true
+    },
+    "agent": {
+      "model": "agents",
+      "via": "properties"
+    }
+  }
+}
